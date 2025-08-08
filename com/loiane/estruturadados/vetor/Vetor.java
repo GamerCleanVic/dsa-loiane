@@ -2,7 +2,7 @@ package com.loiane.estruturadados.vetor;
 
 public class Vetor {
 	private String[] elementos;
-	private int tamanho;
+	private int tamanho = 0;
 	
 	public Vetor(int capacidade) {
 		this.elementos = new String[capacidade];
@@ -32,5 +32,23 @@ public class Vetor {
 			this.tamanho++;
 			return true;
 		}return false;
+	}
+	public int tamanho() {
+		return this.tamanho;
+	}
+	@Override
+	public String toString() {
+		StringBuilder s = new StringBuilder();
+		s.append("[");
+		for(int i = 0; i < this.tamanho-1; i++) {
+			s.append(this.elementos[i]);
+			s.append(", ");
+		}
+		if(this.tamanho > 0) {
+			s.append(this.elementos[this.tamanho-1]);
+		}
+		s.append("]");
+		
+		return s.toString();
 	}
 }
